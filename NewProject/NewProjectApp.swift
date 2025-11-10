@@ -12,7 +12,7 @@ import NavigationBackport
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            UIKitWrapperView()
+            ContentView()
         }
     }
 }
@@ -25,12 +25,6 @@ struct UIKitWrapperView: UIViewControllerRepresentable {
         let viewController = HostingViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.isHidden = true
-        
-        // Create modal view with mutable path
-//        let modalView = ModalNavigationView()
-//        
-//        navigationController
-//            .present(UIHostingController(rootView: modalView), animated: true)
         return navigationController
     }
     
@@ -39,48 +33,15 @@ struct UIKitWrapperView: UIViewControllerRepresentable {
 
 // Separate view to manage the modal's navigation state
 struct ModalNavigationView: View {
-    @State private var path: [Int] = [1, 2, 3]
+    @State private var path: [Int] = []
     
     var body: some View {
         NBNavigationStack(path: $path) {
             Text("Hello")
-                .nbNavigationDestination(for: Int.self) { value in
-                    ModalScreenView(value: value, path: $path)
-                }
         }
     }
 }
 
-struct ModalScreenView: View {
-    @EnvironmentObject var coordinator: PathNavigator // This will trigger the crash
-    let value: Int
-    @Binding var path: [Int]
-    
-    var body: some View {
-        VStack {
-            Text("\(value)")
-                .font(.largeTitle)
-            
-            Button("Push \(value + 1)") {
-                path.append(value + 1)
-            }
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            
-            Button("Pop to Root (Crashes)") {
-                // This will crash with:
-                // "Fatal error: No ObservableObject of type DestinationBuilderHolder found"
-                coordinator.popToRoot()
-            }
-            .padding()
-            .background(Color.red)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-        }
-    }
-}
 
 class HostingViewController: UIViewController {
     override func viewDidLoad() {
@@ -114,7 +75,8 @@ struct ContentView: View {
     
     var body: some View {
         NBNavigationStack(path: $path) {
-            SplashScreen(path: $path)
+            //            SplashScreen(path: $path)
+            ScreenView(screen: Screen.first)
                 .nbNavigationDestination(for: Screen.self) { screen in
                     ScreenView(screen: screen)
                 }
@@ -192,7 +154,7 @@ enum Screen: Hashable {
         switch self {
         case .first: return .second
         case .second: return .third
-        case .third: return .fourth
+        case .third: return nil
         case .fourth: return .fifth
         case .fifth: return nil
         }

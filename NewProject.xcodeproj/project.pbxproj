@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DEB1BA62EC18BAB0042CF48 /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEB1BA52EC18BAB0042CF48 /* NavigationBackport */; };
+		3DEB1BB52EC1CA210042CF48 /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEB1BB42EC1CA210042CF48 /* NavigationBackport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DEB1BA62EC18BAB0042CF48 /* NavigationBackport in Frameworks */,
+				3DEB1BB52EC1CA210042CF48 /* NavigationBackport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			);
 			name = NewProject;
 			packageProductDependencies = (
-				3DEB1BA52EC18BAB0042CF48 /* NavigationBackport */,
+				3DEB1BB42EC1CA210042CF48 /* NavigationBackport */,
 			);
 			productName = NewProject;
 			productReference = 3DA6B0622EBC54760074F0C0 /* NewProject.app */;
@@ -101,7 +101,7 @@
 			mainGroup = 3DA6B0592EBC54760074F0C0;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3DEB1BA42EC18BAB0042CF48 /* XCRemoteSwiftPackageReference "NavigationBackport" */,
+				3DEB1BB32EC1CA210042CF48 /* XCLocalSwiftPackageReference "NavigationBackport" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3DA6B0632EBC54760074F0C0 /* Products */;
@@ -344,21 +344,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		3DEB1BA42EC18BAB0042CF48 /* XCRemoteSwiftPackageReference "NavigationBackport" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Reyhanfloq/NavigationBackport";
-			requirement = {
-				branch = experimental;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		3DEB1BB32EC1CA210042CF48 /* XCLocalSwiftPackageReference "NavigationBackport" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = NavigationBackport;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3DEB1BA52EC18BAB0042CF48 /* NavigationBackport */ = {
+		3DEB1BB42EC1CA210042CF48 /* NavigationBackport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3DEB1BA42EC18BAB0042CF48 /* XCRemoteSwiftPackageReference "NavigationBackport" */;
 			productName = NavigationBackport;
 		};
 /* End XCSwiftPackageProductDependency section */
