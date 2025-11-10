@@ -25,12 +25,6 @@ struct UIKitWrapperView: UIViewControllerRepresentable {
         let viewController = HostingViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.isHidden = true
-        
-        // Create modal view with mutable path
-        let modalView = ModalNavigationView()
-        
-        navigationController
-            .present(UIHostingController(rootView: modalView), animated: true)
         return navigationController
     }
     
