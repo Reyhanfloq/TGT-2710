@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C4BC9DD6-C89B-489E-B88E-A88726A78FCF"
+            uuid = "77FCC28C-A3B2-462D-8D15-9D09A7F57CB4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NavigationBackport/Sources/NavigationBackport/Array+utilities.swift"
+            filePath = "NavigationBackport/Sources/NavigationBackport/NBNavigationStack.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "popToRoot()"
-            landmarkType = "7">
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "content"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

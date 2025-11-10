@@ -13,7 +13,7 @@ struct NavigationLinkModifier<Destination: View>: ViewModifier {
         content
           .background(
             NavigationLink(destination: destination, isActive: $isActiveBinding, label: EmptyView.init)
-              .hidden()
+                .hidden()
           )
     }
   }

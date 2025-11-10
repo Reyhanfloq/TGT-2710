@@ -6,7 +6,7 @@ import SwiftUI
 public struct NBNavigationStack<Root: View, Data: Hashable>: View {
   @Binding var externalTypedPath: [Data]
   @State var internalTypedPath: [Data] = []
-  @StateObject var path: NavigationPathHolder
+    @StateObject var path: NavigationPathHolder
   @StateObject var destinationBuilder = DestinationBuilderHolder()
   @StateObject var navigator: Navigator<Data> = .init(.constant([]))
   @Environment(\.useNavigationStack) var useNavigationStack
@@ -14,6 +14,7 @@ public struct NBNavigationStack<Root: View, Data: Hashable>: View {
   // We do not need to re-render the view when appIsActive changes, and doing so can cause animation glitches, so it is wrapped
   // in `NonReactiveState`.
   @State var appIsActive = NonReactiveState(value: true)
+    var id = UUID().uuidString
   var root: Root
   var useInternalTypedPath: Bool
 
@@ -39,6 +40,9 @@ public struct NBNavigationStack<Root: View, Data: Hashable>: View {
       NavigationView {
         Router(rootView: root, screens: $path.path)
       }
+      .if(path.willSetToNoView, content: { view in
+          view.id(0)
+      })
       .navigationViewStyle(supportedNavigationViewStyle)
       .environment(\.isWithinNavigationStack, false)
     }
@@ -196,4 +200,19 @@ extension View {
       navigationDestination(for: AnyHashable.self, destination: { DestinationBuilderView(data: $0) })
     }
   }
+}
+
+extension View {
+    @ViewBuilder
+    func wrapperID() -> some View{
+        WrapperID.init(content: self)
+    }
+}
+
+struct WrapperID<Content: View>: View {
+    var content: Content
+    var id = UUID().uuidString
+    var body: some View {
+        content.id(id)
+    }
 }
