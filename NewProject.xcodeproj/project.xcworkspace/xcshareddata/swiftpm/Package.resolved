@@ -1,0 +1,15 @@
+{
+  "originHash" : "dfc40b9eb176a62305d530db35116a2591899119fc219c19abccc036c229a3f1",
+  "pins" : [
+    {
+      "identity" : "navigationbackport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Reyhanfloq/NavigationBackport",
+      "state" : {
+        "branch" : "main",
+        "revision" : "540d823fdfbbe495cbbe0afc80c409d63c9995c0"
+      }
+    }
+  ],
+  "version" : 3
+}
