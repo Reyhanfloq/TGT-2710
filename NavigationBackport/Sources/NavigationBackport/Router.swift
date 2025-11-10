@@ -17,7 +17,10 @@ struct Router<Screen: Hashable, RootView: View>: View {
 
   private var isActiveBinding: Binding<Bool> {
     Binding(
-      get: { !screens.isEmpty },
+      get: {
+          print("screen is empty = \(screens.isEmpty)")
+          return !screens.isEmpty
+      },
       set: { isShowing in
         guard !isShowing else { return }
         guard !screens.isEmpty else { return }
@@ -28,6 +31,22 @@ struct Router<Screen: Hashable, RootView: View>: View {
 
   var body: some View {
     rootView
-      ._navigationDestination(isActive: isActiveBinding, destination: pushedScreens)
+          .if(screens.count > 0, content: { view in
+              view._navigationDestination(isActive: isActiveBinding, destination: pushedScreens)
+          })
   }
+}
+
+extension View{
+    func `if`<Content: View>(
+        _ condition: Bool,
+        content: (Self) -> Content
+    ) -> some View {
+        if condition {
+            AnyView(content(self))
+        } else {
+            AnyView(self)
+        }
+    }
+
 }

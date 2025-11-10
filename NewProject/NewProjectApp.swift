@@ -121,6 +121,7 @@ struct ScreenView: View {
                     // This triggers the fatal error:
                     // "Fatal error: No ObservableObject of type DestinationBuilderHolder found"
                     coordinator.popToRoot()
+//                    coordinator.path.removeLast(coordinator.path.count)
                 }
             }
             .padding()
